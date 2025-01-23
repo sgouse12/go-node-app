@@ -1,8 +1,0 @@
-version: "3.9"
-
-services:
-  web:
-    image: nandini965/node-todo-cicd:v1 # Replace with your image name
-    container_name: node_app_container
-    ports:
-      - "8000:8000" # Map port 8080 on the host to 8000 in the container
