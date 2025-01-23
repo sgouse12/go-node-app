@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('git clone') {
             steps {
-            git url: "https://github.com/nandini965/go-node-app.git"
+            git url: "https://github.com/nandini965/go-node-app.git", branch: "main"
         }
         }
         stage('build,test') {
