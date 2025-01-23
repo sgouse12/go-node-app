@@ -13,17 +13,19 @@ pipeline {
         }
         stage('docker run') {
             steps {
-                sh "docker run -p 8000:8000 -it nandini965/node-todo-app:latest"
+                withCredentials([usernamePassword(
+                    credentialsId:"dockerHubCreds",
+                    usernameVariable:"dockerHubUser", 
+                    passwordVariable:"dockerHubPass")]){
+                sh 'echo $dockerHubPass | docker login -u $dockerHubUser --password-stdin'
+                sh "docker image tag node-todo-app:latest ${env.dockerHubUser}/node-todo-app:latest"
+                sh "docker push ${env.dockerHubUser}/node-todo-app:latest"
+   
+                    }
             }
         }
-        stage('Deploy our image') {
-         steps {
-               docker.withRegistry('https://registry.hub.docker.com', 'git') {  
-                docker run -p 8000:8000("latest")
-                docker push("latest")
-              }
-         }
-        }
+       
+        
       }
     }
 
