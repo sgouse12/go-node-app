@@ -13,7 +13,7 @@ pipeline {
         }
         stage('docker run') {
             steps {
-                sh "docker run -p nandini965/node-todo-app:latest"
+                sh "docker run -p 8000:8000 -it nandini965/node-todo-app:latest"
             }
         }
     }
