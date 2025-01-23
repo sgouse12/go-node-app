@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    environment {
+        MY_VAR = 'value'
+        ANOTHER_VAR = 'another_value'
+    }
     stages {
         stage('git clone') {
             steps {
@@ -13,19 +17,16 @@ pipeline {
         }
         stage('docker run') {
             steps {
-                withCredentials([usernamePassword(
-                    credentialsId:"dockerHubUser",
-                    usernameVariable:"dockerHubUser", 
-                    passwordVariable:"dockerHubPass")]){
-                sh 'echo $dockerHubPass | docker login -u $dockerHubUser --password-stdin'
-                sh "docker image tag node-todo-app:latest ${env.dockerHubUser}/node-todo-app:latest"
-                sh "docker push ${env.dockerHubUser}/node-todo-app:latest"
-   
+                echo "MY_var:${env.dockerHubUser}"
+                echo "ANOTHER_VAR:${env.dockerHubPass}"
+
+               
+               
                     }
             }
         }
        
         
       }
-    }
+    
 
