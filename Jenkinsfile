@@ -8,7 +8,7 @@ pipeline {
         }
         stage('build,test') {
             steps {
-                sh 'docker build -t nandini965/node-todo-app:latest .'
+                sh "docker build -t nandini965/node-todo-app:latest ."
             }
         }
         stage('docker run') {
