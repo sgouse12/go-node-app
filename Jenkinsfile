@@ -17,9 +17,4 @@ pipeline {
             }
         }
     }
-<<<<<<< HEAD
 }
-=======
-    }
-}
->>>>>>> 03eb9e6 (jenkinsfile)
