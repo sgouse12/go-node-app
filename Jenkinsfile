@@ -23,6 +23,7 @@ pipeline {
                 docker push("latest")
               }
          }
+        }
       }
     }
 
