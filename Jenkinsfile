@@ -15,12 +15,13 @@ pipeline {
                 sh "docker build -t nandini965/node-todo-app:latest ."
             }
         }
-        stage('docker run') {
+        stage('docker push') {
             steps {
                 echo "MY_var:${env.dockerHubUser}"
                 echo "ANOTHER_VAR:${env.dockerHubPass}"
-
-               
+               sh 'echo $dockerHubPass | docker login -u $dockerHubUser --password-stdin'
+                sh "docker image tag node-todo-app:latest ${env.dockerHubUser}/node-todo-app:latest"
+                sh "docker push ${env.dockerHubUser}/node-todo-app:latest"
                
                     }
             }
