@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        node 'abc'
+    }
     environment {
         MY_VAR = 'value'
         ANOTHER_VAR = 'another_value'
