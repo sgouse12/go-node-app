@@ -16,6 +16,13 @@ pipeline {
                 sh "docker run -p 8000:8000 -it nandini965/node-todo-app:latest"
             }
         }
-    }
+        stage('Deploy our image') {
+         steps {
+               docker.withRegistry('https://registry.hub.docker.com', 'git') {  
+                docker run -p 8000:8000("latest")
+                docker push("latest")
+              }
+         }
+      }
     }
 
