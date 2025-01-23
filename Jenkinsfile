@@ -20,7 +20,7 @@ pipeline {
                 echo "MY_var:${env.dockerHubUser}"
                 echo "ANOTHER_VAR:${env.dockerHubPass}"
                sh 'echo $dockerHubPass | docker login -u $dockerHubUser --password-stdin'
-                sh "docker image tag node-todo-app:latest ${env.dockerHubUser}/node-todo-app:latest"
+                sh "docker tag node-todo-app:latest ${env.dockerHubUser}/node-todo-app:latest"
                 sh "docker push ${env.dockerHubUser}/node-todo-app:latest"
                
                     }
