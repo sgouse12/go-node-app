@@ -19,7 +19,7 @@ pipeline {
             steps {
                 echo "MY_var:${env.dockerHubUser}"
                 echo "ANOTHER_VAR:${env.dockerHubPass}"
-               sh 'echo $dockerHubPass | docker login -u $dockerHubUser --password-stdin'
+                sh 'echo $dockerHubPass | docker login -u $dockerHubUser --password-stdin'
                 sh "docker push ${env.dockerHubUser}/node-todo-cicd:latest"
                
                     }
