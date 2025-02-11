@@ -24,6 +24,10 @@ pipeline {
                
                     }
             }
+             stage('docker compose') {
+              steps {
+              docker-compose up -d --build
+               }
         }
        
         
