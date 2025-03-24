@@ -2,14 +2,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: node-todo-app
+  name: node-todo-cicd
   labels:
-    app: node-todo-app
+    app: node-todo-cicd
 spec:
   ports:
-    - port: 8000
+    - port: 8080
       targetPort: 8000
       protocol: TCP
   selector:
-    app: go-web-app
-  type: ClusterIP
+    app: node-todo-cicd
+  type: LoadBalancer

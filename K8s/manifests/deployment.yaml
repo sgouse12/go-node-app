@@ -12,10 +12,10 @@ spec:
   template:
     metadata:
       labels:
-        app: go-web-app
+        app: node-todo-cicd
     spec:
       containers:
-        - name: go-web-app
+        - name: node-todo-cicd
           image: nandini965/node-todo-cicd
           ports:
             - containerPort: 8000
