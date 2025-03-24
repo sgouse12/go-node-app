@@ -1,15 +1,13 @@
-# Service for the application
 apiVersion: v1
 kind: Service
 metadata:
-  name: node-todo-cicd
-  labels:
-    app: node-todo-cicd
+  name: node-todo-service
 spec:
-  ports:
-    - port: 8000
-      targetPort: 8000
-      protocol: TCP
   selector:
     app: node-todo-cicd
-  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
+      nodePort: 32374  # Example NodePort
+  type: NodePort
