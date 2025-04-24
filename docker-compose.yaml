@@ -1,6 +1,2 @@
-services:
-  nodejs:
-    image: nandini965/node-todo-cicd:latest
-    ports:
-      - "8000:8000"
+
 
